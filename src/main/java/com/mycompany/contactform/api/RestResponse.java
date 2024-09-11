@@ -6,6 +6,7 @@ package com.mycompany.contactform.api;
 
 import javax.json.Json;
 import javax.json.JsonObject;
+import javax.json.JsonValue;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -62,13 +63,17 @@ public class RestResponse {
         this.result = result;
     }
     
-    public static Response responseBuilder(String success, String code, String message, String result) {
+     public static Response responseBuilder(String success, String code, String message, JsonValue result) {
         JsonObject json = Json.createObjectBuilder()
                 .add("success", success)
                 .add("code", code)
                 .add("message", message)
-                .add("result", result == null ? "" : result).build();
+                .add("result", result == null ? JsonValue.EMPTY_JSON_OBJECT : result)
+                .build();
 
-        return Response.status(Response.Status.OK).type(MediaType.APPLICATION_JSON).entity(json).build();
+        return Response.status(Response.Status.OK)
+                .type(MediaType.APPLICATION_JSON)
+                .entity(json)
+                .build();
     }
 }

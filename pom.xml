@@ -16,50 +16,65 @@
         <jakartaee>8.0.0</jakartaee>
     </properties>
     
-   <dependencies>
-    <!-- Hibernate Core for ORM and database interaction -->
-    <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-core</artifactId>
-        <version>5.6.15.Final</version>
-    </dependency>
+    <dependencies>
+        <!-- Hibernate Core for ORM and database interaction -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.6.15.Final</version>
+        </dependency>
     
-    <!-- MySQL Connector for database connectivity -->
-    <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.26</version>
-    </dependency>
+        <!-- MySQL Connector for database connectivity -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.26</version>
+        </dependency>
 
-    <!-- Java Persistence API for ORM -->
-    <dependency>
-        <groupId>javax.persistence</groupId>
-        <artifactId>javax.persistence-api</artifactId>
-        <version>2.2</version>
-    </dependency>
+        <!-- Java Persistence API for ORM -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>2.2</version>
+        </dependency>
 
-    <!-- JAX-RS Implementation for building RESTful APIs -->
-    <dependency>
-        <groupId>org.glassfish.jersey.containers</groupId>
-        <artifactId>jersey-container-servlet</artifactId>
-        <version>2.35</version>
-    </dependency>
+        <!-- JAX-RS Implementation for building RESTful APIs -->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>2.35</version>
+        </dependency>
   
-    <dependency>
-        <groupId>org.glassfish.jersey.core</groupId>
-        <artifactId>jersey-server</artifactId>
-        <version>2.35</version>
-    </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>2.35</version>
+        </dependency>
 
-    <!-- JSON library for handling JSON data -->
-    <dependency>
-        <groupId>org.json</groupId>
-        <artifactId>json</artifactId>
-        <version>20190722</version>
-    </dependency>
-</dependencies>
+        <!-- JSON library for handling JSON data -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20190722</version>
+        </dependency>
     
-     <build>
+        <!--Jackson-->
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>2.35</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.12.5</version> <!-- Use the latest version -->
+        </dependency>
+
+
+    </dependencies>
+    
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
