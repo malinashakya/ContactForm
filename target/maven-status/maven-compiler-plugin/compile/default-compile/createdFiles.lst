@@ -1,2 +1,6 @@
+com/mycompany/contactform/model/Contact.class
+com/mycompany/contactform/repository/ContactRepository.class
+com/mycompany/contactform/api/RestResponse.class
 com/mycompany/contactform/JakartaRestConfiguration.class
 com/mycompany/contactform/resources/JakartaEE8Resource.class
+com/mycompany/contactform/api/ContactApi.class
