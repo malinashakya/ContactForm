@@ -44,7 +44,9 @@ public class ContactApi {
                         .add("address", contact.getAddress())
                         .add("contact", contact.getContact())
                         .add("email", contact.getEmail())
-                        .add("message", contact.getMessage());
+                        .add("message", contact.getMessage())
+                        .add("contactVia", contact.getContactVia().name()); // Added this line for Contactvia, other thing same keeping
+
                 arrayBuilder.add(objectBuilder);
             }
             JsonValue jsonResult = arrayBuilder.build();
@@ -67,6 +69,8 @@ public class ContactApi {
                         .add("contact", contact.getContact())
                         .add("email", contact.getEmail())
                         .add("message", contact.getMessage())
+                        .add("contactVia", contact.getContactVia().name())// Added this line for Contactvia, other thing same keeping
+
                         .build();
                 return RestResponse.responseBuilder("true", "200", "Contact found", jsonResult);
             } else {
@@ -88,6 +92,8 @@ public class ContactApi {
                     .add("contact", contact.getContact())
                     .add("email", contact.getEmail())
                     .add("message", contact.getMessage())
+                    .add("contactVia", contact.getContactVia().name()) // Added this line for Contactvia, other thing same keeping
+
                     .build();
             return RestResponse.responseBuilder("true", "201", "Contact created successfully", jsonResult);
         } catch (Exception e) {
@@ -130,6 +136,8 @@ public class ContactApi {
                         .add("contact", existingContact.getContact())
                         .add("email", existingContact.getEmail())
                         .add("message", existingContact.getMessage())
+                        .add("contactVia", existingContact.getContactVia().name()) // Added this line for Contactvia, other thing same keeping
+
                         .build();
                 return RestResponse.responseBuilder("true", "200", "Contact updated successfully", jsonResult);
             } else {

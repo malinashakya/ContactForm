@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.contactform.model;
 
-/**
- *
- * @author malina
- */
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -15,6 +7,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+/**
+ * Represents contact information with various fields.
+ */
 @Entity
 @Table(name = "contact_info")
 public class Contact implements Serializable {
@@ -46,8 +41,12 @@ public class Contact implements Serializable {
     @NotEmpty(message = "Email cannot be empty")
     private String email;
 
-    @Column(name = "message", nullable = false, unique = true)
+    @Column(name = "message", nullable = false)
     private String message;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "contact_via", nullable = false)
+    private Contactvia contactVia;
 
     public Long getId() {
         return id;
@@ -97,24 +96,33 @@ public class Contact implements Serializable {
         this.message = message;
     }
 
-    public Contact(String name, String address, String contact, String email, String message) {
+    public Contactvia getContactVia() {
+        return contactVia;
+    }
+
+    public void setContactVia(Contactvia contactVia) {
+        this.contactVia = contactVia;
+    }
+
+    public Contact(String name, String address, String contact, String email, String message, Contactvia contactVia) {
         this.name = name;
         this.address = address;
         this.contact = contact;
         this.email = email;
         this.message = message;
+        this.contactVia = contactVia;
     }
 
-    //For proper display in the API
     @Override
     public String toString() {
-        return "Customer{"
+        return "Contact{"
                 + "id=" + id
                 + ", name=" + name
                 + ", address=" + address
                 + ", contact=" + contact
                 + ", email=" + email
                 + ", message=" + message
+                + ", contactVia=" + contactVia
                 + '}';
     }
 
