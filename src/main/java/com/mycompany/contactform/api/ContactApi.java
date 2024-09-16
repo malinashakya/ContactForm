@@ -1,7 +1,9 @@
 package com.mycompany.contactform.api;
 
 import com.mycompany.contactform.model.Contact;
+import com.mycompany.contactform.model.Contactvia;
 import com.mycompany.contactform.repository.ContactRepository;
+import java.util.Arrays;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
@@ -145,6 +147,21 @@ public class ContactApi {
             }
         } catch (Exception e) {
             return RestResponse.responseBuilder("false", "500", "An error occurred", Json.createObjectBuilder().add("error", e.getMessage()).build());
+        }
+    }
+
+//    http://localhost:8080/ContactForm-1.0-SNAPSHOT/api/contacts/contactvia for api testing
+    @GET
+    @Path("/contactvia")
+    public Response getContactViaOptions() {
+        try {
+            JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
+            Arrays.stream(Contactvia.values()).forEach(contactvia -> arrayBuilder.add(contactvia.name()));
+            return Response.ok(arrayBuilder.build()).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(Json.createObjectBuilder().add("error", e.getMessage()).build())
+                    .build();
         }
     }
 }
