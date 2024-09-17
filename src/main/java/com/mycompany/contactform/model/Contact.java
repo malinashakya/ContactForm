@@ -28,17 +28,14 @@ public class Contact implements Serializable {
     private String name;
 
     @Column(name = "address", nullable = false)
-    @NotEmpty(message = "Address cannot be empty")
     private String address;
 
-    @Column(name = "contact", nullable = false, unique = true)
-    @Size(min = 10, max = 10, message = "Contact number should be 10 digits")
-    @NotEmpty(message = "Contact cannot be empty")
+    @Column(name = "contact", unique = true, nullable = true)
+    @Pattern(regexp = "^[0-9]{10}$", message = "contact must be exactly 10 digits")
     private String contact;
 
-    @Column(name = "email", nullable = false, unique = true)
-    @Email(message = "Email must be a valid email address")
-    @NotEmpty(message = "Email cannot be empty")
+    @Column(name = "email", unique = true, nullable = true)
+    @Email(message = "email must be a valid email address")
     private String email;
 
     @Column(name = "message", nullable = false)
@@ -77,7 +74,7 @@ public class Contact implements Serializable {
     }
 
     public void setContact(String contact) {
-        this.contact = contact;
+        this.contact = (contact!=null && contact.isEmpty())?null:contact;
     }
 
     public String getEmail() {
@@ -85,7 +82,7 @@ public class Contact implements Serializable {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = (email!=null && email.isEmpty())?null:email;
     }
 
     public String getMessage() {
@@ -107,8 +104,8 @@ public class Contact implements Serializable {
     public Contact(String name, String address, String contact, String email, String message, Contactvia contactVia) {
         this.name = name;
         this.address = address;
-        this.contact = contact;
-        this.email = email;
+        this.contact = (contact!=null && contact.isEmpty())?null:contact;
+        this.email = (email!=null && email.isEmpty())?null:email;
         this.message = message;
         this.contactVia = contactVia;
     }

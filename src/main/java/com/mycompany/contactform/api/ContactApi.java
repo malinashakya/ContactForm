@@ -44,8 +44,8 @@ public class ContactApi {
                         .add("id", contact.getId())
                         .add("name", contact.getName())
                         .add("address", contact.getAddress())
-                        .add("contact", contact.getContact())
-                        .add("email", contact.getEmail())
+                        .add("contact", contact.getContact() != null ? contact.getContact() : "") // Handle null values
+                        .add("email", contact.getEmail() != null ? contact.getEmail() : "")
                         .add("message", contact.getMessage())
                         .add("contactVia", contact.getContactVia().name()); // Added this line for Contactvia, other thing same keeping
 
@@ -68,8 +68,8 @@ public class ContactApi {
                         .add("id", contact.getId())
                         .add("name", contact.getName())
                         .add("address", contact.getAddress())
-                        .add("contact", contact.getContact())
-                        .add("email", contact.getEmail())
+                        .add("contact", contact.getContact() != null ? contact.getContact() : "") // Handle null values
+                        .add("email", contact.getEmail() != null ? contact.getEmail() : "")
                         .add("message", contact.getMessage())
                         .add("contactVia", contact.getContactVia().name())// Added this line for Contactvia, other thing same keeping
 
@@ -91,8 +91,8 @@ public class ContactApi {
                     .add("id", contact.getId())
                     .add("name", contact.getName())
                     .add("address", contact.getAddress())
-                    .add("contact", contact.getContact())
-                    .add("email", contact.getEmail())
+                    .add("contact", contact.getContact() != null ? contact.getContact() : "")
+                    .add("email", contact.getEmail() != null ? contact.getEmail() : "")
                     .add("message", contact.getMessage())
                     .add("contactVia", contact.getContactVia().name()) // Added this line for Contactvia, other thing same keeping
 
@@ -130,6 +130,7 @@ public class ContactApi {
                 existingContact.setContact(contact.getContact());
                 existingContact.setEmail(contact.getEmail());
                 existingContact.setMessage(contact.getMessage());
+                existingContact.setContactVia(contact.getContactVia());
                 contactRepository.update(existingContact);
                 JsonObject jsonResult = Json.createObjectBuilder()
                         .add("id", existingContact.getId())
