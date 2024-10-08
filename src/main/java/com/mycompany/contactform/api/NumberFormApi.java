@@ -8,7 +8,6 @@ package com.mycompany.contactform.api;
  *
  * @author malina
  */
-
 import com.mycompany.contactform.model.NumberForm;
 import com.mycompany.contactform.repository.NumberFormRepository;
 
@@ -43,19 +42,7 @@ public class NumberFormApi {
                 JsonObjectBuilder objectBuilder = Json.createObjectBuilder()
                         .add("id", numberForm.getId())
                         .add("intnum", numberForm.getIntnum())
-                        .add("nogroupintnum", numberForm.getNogroupintnum())
-                        .add("minmaxfractdigit", numberForm.getMinmaxfractdigit())
-                        .add("minmaxboundary", numberForm.getMinmaxboundary())
                         .add("doublenum", numberForm.getDoublenum())
-                        .add("user_locale", numberForm.getUser_locale())
-                        .add("us_locale", numberForm.getUs_locale())
-                        .add("german_locale", numberForm.getGerman_locale())
-                        .add("indian_locale", numberForm.getIndian_locale())
-                        .add("currency", numberForm.getCurrency())
-                        .add("prefiix", numberForm.getPrefiix())
-                        .add("suffix", numberForm.getSuffix())
-                        .add("stacked", numberForm.getStacked())
-                        .add("minmax", numberForm.getMinmax())
                         .add("horizontal_with_step", numberForm.getHorizontal_with_step())
                         .add("vertical_with_step", numberForm.getVertical_with_step());
 
@@ -77,19 +64,7 @@ public class NumberFormApi {
                 JsonObject jsonResult = Json.createObjectBuilder()
                         .add("id", numberForm.getId())
                         .add("intnum", numberForm.getIntnum())
-                        .add("nogroupintnum", numberForm.getNogroupintnum())
-                        .add("minmaxfractdigit", numberForm.getMinmaxfractdigit())
-                        .add("minmaxboundary", numberForm.getMinmaxboundary())
                         .add("doublenum", numberForm.getDoublenum())
-                        .add("user_locale", numberForm.getUser_locale())
-                        .add("us_locale", numberForm.getUs_locale())
-                        .add("german_locale", numberForm.getGerman_locale())
-                        .add("indian_locale", numberForm.getIndian_locale())
-                        .add("currency", numberForm.getCurrency())
-                        .add("prefiix", numberForm.getPrefiix())
-                        .add("suffix", numberForm.getSuffix())
-                        .add("stacked", numberForm.getStacked())
-                        .add("minmax", numberForm.getMinmax())
                         .add("horizontal_with_step", numberForm.getHorizontal_with_step())
                         .add("vertical_with_step", numberForm.getVertical_with_step())
                         .build();
@@ -109,19 +84,7 @@ public class NumberFormApi {
             JsonObject jsonResult = Json.createObjectBuilder()
                     .add("id", numberForm.getId())
                     .add("intnum", numberForm.getIntnum())
-                    .add("nogroupintnum", numberForm.getNogroupintnum())
-                    .add("minmaxfractdigit", numberForm.getMinmaxfractdigit())
-                    .add("minmaxboundary", numberForm.getMinmaxboundary())
                     .add("doublenum", numberForm.getDoublenum())
-                    .add("user_locale", numberForm.getUser_locale())
-                    .add("us_locale", numberForm.getUs_locale())
-                    .add("german_locale", numberForm.getGerman_locale())
-                    .add("indian_locale", numberForm.getIndian_locale())
-                    .add("currency", numberForm.getCurrency())
-                    .add("prefiix", numberForm.getPrefiix())
-                    .add("suffix", numberForm.getSuffix())
-                    .add("stacked", numberForm.getStacked())
-                    .add("minmax", numberForm.getMinmax())
                     .add("horizontal_with_step", numberForm.getHorizontal_with_step())
                     .add("vertical_with_step", numberForm.getVertical_with_step())
                     .build();
@@ -154,19 +117,7 @@ public class NumberFormApi {
             NumberForm existingNumberForm = numberFormRepository.getById(id);
             if (existingNumberForm != null) {
                 existingNumberForm.setIntnum(numberForm.getIntnum());
-                existingNumberForm.setNogroupintnum(numberForm.getNogroupintnum());
-                existingNumberForm.setMinmaxfractdigit(numberForm.getMinmaxfractdigit());
-                existingNumberForm.setMinmaxboundary(numberForm.getMinmaxboundary());
                 existingNumberForm.setDoublenum(numberForm.getDoublenum());
-                existingNumberForm.setUser_locale(numberForm.getUser_locale());
-                existingNumberForm.setUs_locale(numberForm.getUs_locale());
-                existingNumberForm.setGerman_locale(numberForm.getGerman_locale());
-                existingNumberForm.setIndian_locale(numberForm.getIndian_locale());
-                existingNumberForm.setCurrency(numberForm.getCurrency());
-                existingNumberForm.setPrefiix(numberForm.getPrefiix());
-                existingNumberForm.setSuffix(numberForm.getSuffix());
-                existingNumberForm.setStacked(numberForm.getStacked());
-                existingNumberForm.setMinmax(numberForm.getMinmax());
                 existingNumberForm.setHorizontal_with_step(numberForm.getHorizontal_with_step());
                 existingNumberForm.setVertical_with_step(numberForm.getVertical_with_step());
 
@@ -175,19 +126,7 @@ public class NumberFormApi {
                 JsonObject jsonResult = Json.createObjectBuilder()
                         .add("id", existingNumberForm.getId())
                         .add("intnum", existingNumberForm.getIntnum())
-                        .add("nogroupintnum", existingNumberForm.getNogroupintnum())
-                        .add("minmaxfractdigit", existingNumberForm.getMinmaxfractdigit())
-                        .add("minmaxboundary", existingNumberForm.getMinmaxboundary())
                         .add("doublenum", existingNumberForm.getDoublenum())
-                        .add("user_locale", existingNumberForm.getUser_locale())
-                        .add("us_locale", existingNumberForm.getUs_locale())
-                        .add("german_locale", existingNumberForm.getGerman_locale())
-                        .add("indian_locale", existingNumberForm.getIndian_locale())
-                        .add("currency", existingNumberForm.getCurrency())
-                        .add("prefiix", existingNumberForm.getPrefiix())
-                        .add("suffix", existingNumberForm.getSuffix())
-                        .add("stacked", existingNumberForm.getStacked())
-                        .add("minmax", existingNumberForm.getMinmax())
                         .add("horizontal_with_step", existingNumberForm.getHorizontal_with_step())
                         .add("vertical_with_step", existingNumberForm.getVertical_with_step())
                         .build();
@@ -200,4 +139,3 @@ public class NumberFormApi {
         }
     }
 }
-

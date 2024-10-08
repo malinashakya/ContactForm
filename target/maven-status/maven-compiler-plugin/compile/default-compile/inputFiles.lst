@@ -1,6 +1,11 @@
+/home/malina/NetBeansProjects/ContactForm/src/main/java/com/mycompany/contactform/api/CORSFilter.java
 /home/malina/NetBeansProjects/ContactForm/src/main/java/com/mycompany/contactform/JakartaRestConfiguration.java
+/home/malina/NetBeansProjects/ContactForm/src/main/java/com/mycompany/contactform/repository/NumberFormRepository.java
+/home/malina/NetBeansProjects/ContactForm/src/main/java/com/mycompany/contactform/api/NumberFormApi.java
+/home/malina/NetBeansProjects/ContactForm/src/main/java/com/mycompany/contactform/model/Contactvia.java
 /home/malina/NetBeansProjects/ContactForm/src/main/java/com/mycompany/contactform/model/Contact.java
 /home/malina/NetBeansProjects/ContactForm/src/main/java/com/mycompany/contactform/api/ContactApi.java
 /home/malina/NetBeansProjects/ContactForm/src/main/java/com/mycompany/contactform/repository/ContactRepository.java
+/home/malina/NetBeansProjects/ContactForm/src/main/java/com/mycompany/contactform/model/NumberForm.java
 /home/malina/NetBeansProjects/ContactForm/src/main/java/com/mycompany/contactform/resources/JakartaEE8Resource.java
 /home/malina/NetBeansProjects/ContactForm/src/main/java/com/mycompany/contactform/api/RestResponse.java
