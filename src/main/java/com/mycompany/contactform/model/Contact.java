@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -22,23 +23,25 @@ public class Contact implements Serializable {
     private Long id;
 
     @Column(name = "name", nullable = false)
-    @Size(min = 2, max = 20, message = "name should be at least 2 characters")
-    @Pattern(regexp = "^[a-zA-Z ]+$", message = "name should be a valid string")
-    @NotEmpty(message = "name cannot be empty")
+    @Size(min = 2, max = 20, message = "Name should be at least 2 characters")
+    @Pattern(regexp = "^[a-zA-Z ]+$", message = "Name should be a valid string")
+    @NotEmpty(message = "Name cannot be empty")
     private String name;
 
     @Column(name = "address", nullable = false)
+    @NotEmpty(message = "Address cannot be empty.")
     private String address;
 
     @Column(name = "contact", unique = true, nullable = true)
-    @Pattern(regexp = "^[0-9]{10}$", message = "contact must be exactly 10 digits")
+    @Pattern(regexp = "^[0-9]{10}$", message = "Contact must be exactly 10 digits")
     private String contact;
 
     @Column(name = "email", unique = true, nullable = true)
-    @Email(message = "email must be a valid email address")
+    @Email(message = "Email must be a valid email address")
     private String email;
 
     @Column(name = "message", nullable = false)
+    @NotEmpty(message = "Message cannot be empty.")
     private String message;
 
     @Enumerated(EnumType.STRING)
