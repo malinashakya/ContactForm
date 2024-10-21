@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -77,7 +76,7 @@ public class Contact implements Serializable {
     }
 
     public void setContact(String contact) {
-        this.contact = (contact!=null && contact.isEmpty())?null:contact;
+        this.contact = (contact != null && contact.isEmpty()) ? null : contact;
     }
 
     public String getEmail() {
@@ -85,7 +84,7 @@ public class Contact implements Serializable {
     }
 
     public void setEmail(String email) {
-        this.email = (email!=null && email.isEmpty())?null:email;
+        this.email = (email != null && email.isEmpty()) ? null : email;
     }
 
     public String getMessage() {
@@ -107,8 +106,8 @@ public class Contact implements Serializable {
     public Contact(String name, String address, String contact, String email, String message, Contactvia contactVia) {
         this.name = name;
         this.address = address;
-        this.contact = (contact!=null && contact.isEmpty())?null:contact;
-        this.email = (email!=null && email.isEmpty())?null:email;
+        this.contact = (contact != null && contact.isEmpty()) ? null : contact;
+        this.email = (email != null && email.isEmpty()) ? null : email;
         this.message = message;
         this.contactVia = contactVia;
     }

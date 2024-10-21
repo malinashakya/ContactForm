@@ -61,4 +61,13 @@ public class ContactRepository {
                 .createQuery("SELECT c FROM Contact c", Contact.class)
                 .getResultList();
     }
+    
+    //Inorder to do VirtualLazyLoading in Nuxt
+    public List<Contact> getPaginatedContacts(int start, int limit)
+    {
+        return entityManager.createQuery("SELECT c FROM Contact c",Contact.class)
+        .setFirstResult(start)
+        .setMaxResults(limit)
+        .getResultList();
+    }
 }

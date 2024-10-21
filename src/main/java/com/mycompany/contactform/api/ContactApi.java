@@ -21,6 +21,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import javax.ws.rs.QueryParam;
 
 /**
  *
@@ -164,5 +165,32 @@ public class ContactApi {
                     .entity(Json.createObjectBuilder().add("error", e.getMessage()).build())
                     .build();
         }
+    }
+    
+    //For VirtualLazyLoading
+    @GET
+    public Response getContactsPaginated(@QueryParam("start") int start, @QueryParam("limit") int limit){
+     try{
+         List<Contact> contacts=contactRepository.getPaginatedContacts(start, limit);
+         JsonArrayBuilder arrayBuilder=Json.createArrayBuilder();
+         for(Contact contact:contacts)
+         {
+             JsonObjectBuilder objectBuilder = Json.createObjectBuilder()
+                     .add("id",contact.getId())
+                     .add("name",contact.getName())
+                     .add("address",contact.getAddress())
+                     .add("contactvia",contact.getContactVia().name())
+                     .add("contact",contact.getContact()!=null?contact.getContact():"")
+                     .add("email",contact.getEmail()!=null?contact.getEmail():"")
+                     .add("message",contact.getMessage());
+         arrayBuilder.add(objectBuilder);
+         }
+         JsonValue jsonResult=arrayBuilder.build();
+         return RestResponse.responseBuilder("true","200", "Lazy Contacts retrieved successfully ", jsonResult);
+     }  
+     catch(Exception e)
+     {
+         return RestResponse.responseBuilder("false","500", "An error occurred while retreiving object", Json.createObjectBuilder().add("error",e.getMessage()).build());
+     }
     }
 }
